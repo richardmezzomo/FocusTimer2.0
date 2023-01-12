@@ -29,6 +29,7 @@ body {
 
 main {
   display: flex;
+  align-items: center;
   gap: 19.2rem;
 }
 
@@ -56,9 +57,24 @@ span {
   border: none;
 }
 
-.card1, .card2, .card3, .card4 {
+.sounds {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3.2rem;
+}
+
+
+.card {
   background: var(--bg-card);
   padding: 4.8rem 4.7rem;
   border-radius: 2.4rem;
+}
 
+.card:hover {
+  background-color: var(--bg-card-dark);
+  cursor: pointer;
+}
+
+.clicked {
+  background-color: var(--bg-card-dark);
 }
