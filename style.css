@@ -25,6 +25,8 @@ body {
   place-items: center;
   height: 100vh;
   color: var(--font-color);
+  background: rgb(0,212,255);
+  background: linear-gradient(166deg, rgba(0,212,255,1) 43%, rgba(2,121,157,1) 100%);
 }
 
 main {

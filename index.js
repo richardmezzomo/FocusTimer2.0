@@ -6,15 +6,30 @@ const buttonMinus = document.querySelector('.minus')
 const minutesDisplay = document.querySelector('.minutes')
 const secondsDisplay = document.querySelector('.seconds')
 
+function resetControls() {
+  buttonPause. classList.add('hide')
+  buttonPlay.classList.remove('hide')
+}
+
 function countdown() {
   setTimeout(function(){
     let seconds = Number(secondsDisplay.textContent)
+    let minutes = Number(minutesDisplay.textContent)
 
-    if(seconds <= 0 ) {
-      seconds = 60
+    secondsDisplay.textContent = "00"
+
+    if(minutes <= 0) {
+      resetControls()
+      return
     }
 
-    secondsDisplay.textContent = seconds - 1
+    if(seconds <= 0 ) {
+      seconds = 3
+
+      minutesDisplay.textContent = String(minutes - 1).padStart(2, "0")
+    }
+
+    secondsDisplay.textContent = String(seconds - 1).padStart(2, "0")
 
     countdown()
   }, 1000)
@@ -29,14 +44,24 @@ buttonPlay.addEventListener('click', function() {
 })
 
 buttonPause.addEventListener('click', function() {
-  buttonPause. classList.add('hide')
-  buttonPlay.classList.remove('hide')
+  resetControls()
 })
 
 buttonMinus.addEventListener('click', function() {
   minutesDisplay.textContent = Number(minutesDisplay.textContent) - 5
+  if (minutesDisplay.textContent < 0) {
+    minutesDisplay.textContent = 0
+  }
+
+  if(minutesDisplay.textContent < 10) {
+    minutesDisplay.textContent = String(minutesDisplay.textContent).padStart(2, "0")
+  }
 })
 
 buttonPlus.addEventListener('click', function() {
   minutesDisplay.textContent = Number(minutesDisplay.textContent) + 5
+
+  if(minutesDisplay.textContent < 10) {
+    minutesDisplay.textContent = String(minutesDisplay.textContent).padStart(2, "0")
+  }
 })
