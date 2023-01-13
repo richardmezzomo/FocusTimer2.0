@@ -11,10 +11,6 @@ function resetControls() {
   buttonPlay.classList.remove('hide')
 }
 
-function updateTimerDisplay(minutes, seconds) {
-  minutesDisplay.textContent = String(minutes - 1).padStart(2, "0")
-  secondsDisplay.textContent = String(seconds - 1).padStart(2, "0") 
-}
 
 function countdown() {
   setTimeout(function(){
