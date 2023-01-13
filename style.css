@@ -58,6 +58,10 @@ span {
   scale: 1.1;
 }
 
+.hide {
+  display: none;
+}
+
 .sounds {
   display: grid;
   grid-template-columns: 1fr 1fr;
