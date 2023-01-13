@@ -5,6 +5,7 @@ const buttonPlus = document.querySelector('.plus')
 const buttonMinus = document.querySelector('.minus')
 const minutesDisplay = document.querySelector('.minutes')
 const secondsDisplay = document.querySelector('.seconds')
+let timerTimeOut
 
 function resetControls() {
   buttonPause. classList.add('hide')
@@ -18,7 +19,7 @@ function updateTimerDisplay(minutes, seconds) {
 
 
 function countdown() {
-  setTimeout(function(){
+  timerTimeOut = setTimeout(function() {
     let seconds = Number(secondsDisplay.textContent)
     let minutes = Number(minutesDisplay.textContent)
 
@@ -51,6 +52,12 @@ buttonPlay.addEventListener('click', function() {
 
 buttonPause.addEventListener('click', function() {
   resetControls()
+  clearTimeout(timerTimeOut)
+})
+
+buttonStop.addEventListener('click', function() {
+  resetControls()
+  
 })
 
 buttonMinus.addEventListener('click', function() {
