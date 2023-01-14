@@ -16,6 +16,7 @@ const soundOfRainForest = new Audio('./assets/sounds/rainForest.wav')
 const soundOfRain = new Audio('./assets/sounds/rain.wav')
 const soundOfCoffeeShop = new Audio('./assets/sounds/coffeeShop.wav')
 const soundOfFireplace = new Audio('./assets/sounds/fireplace.wav')
+const kitchenTimer = new Audio("./assets/sounds/KitchenTimer.mp3")
 
 // VARIABLES
 let timerTimeOut;
@@ -56,8 +57,15 @@ function countdown() {
   timerTimeOut = setTimeout(function() {
     let seconds = Number(secondsDisplay.textContent)
     let minutes = Number(minutesDisplay.textContent)
+    let isFinished = minutes <= 0 && seconds <= 0
+
 
     updateTimerDisplay(minutes, 0)
+
+    if(isFinished) {
+      togglePlay(kitchenTimer)
+      return
+    }
 
     if(minutes <= 0) {
       resetControls()
@@ -65,7 +73,7 @@ function countdown() {
     }
 
     if(seconds <= 0 ) {
-      seconds = 60
+      seconds = 1
 
       --minutes
     }
