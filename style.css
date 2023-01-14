@@ -78,7 +78,6 @@ span {
 }
 
 .card:hover {
-  background-color: var(--bg-card-dark);
   cursor: pointer;
 }
 
