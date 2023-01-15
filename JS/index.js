@@ -18,6 +18,11 @@ const soundOfCoffeeShop = new Audio('./assets/sounds/coffeeShop.wav')
 const soundOfFireplace = new Audio('./assets/sounds/fireplace.wav')
 const kitchenTimer = new Audio("./assets/sounds/KitchenTimer.mp3")
 
+soundOfRainForest.loop = true
+soundOfRain.loop = true
+soundOfCoffeeShop.loop = true
+soundOfFireplace.loop = true
+
 // VARIABLES
 let timerTimeOut;
 let minutes = Number(minutesDisplay.textContent)
